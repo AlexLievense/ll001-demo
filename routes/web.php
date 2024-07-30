@@ -7,9 +7,13 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/jobs', fn() => view('jobs', [
-    'jobs' => Job::all()
-]));
+Route::get('/jobs', function () {
+    $jobs = Job::with('employer')->get();
+
+    return view('jobs', [
+        'jobs' => $jobs
+    ]);
+});
 
 Route::get('/jobs/{id}', function ($id) {
     return view('job', ['job' => Job::find($id)]);

@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Job;
+use App\Models\Tag;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,6 +15,14 @@ return new class extends Migration
     {
         Schema::create('tags', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->timestamps();
+        });
+
+        Schema::create('job_listing_tag', function (Blueprint $table) {
+            $table->id();
+            $table->foreignIdFor(Job::class, 'job_listing_id');
+            $table->foreignIdFor(Tag::class);
             $table->timestamps();
         });
     }

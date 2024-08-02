@@ -10,13 +10,17 @@ Route::get('/', function () {
 Route::get('/jobs', function () {
     $jobs = Job::with('employer')->paginate(3);
 
-    return view('jobs', [
+    return view('jobs.index', [
         'jobs' => $jobs
     ]);
 });
 
+Route::get('/jobs/create', function() {
+  return view('jobs.create');
+});
+
 Route::get('/jobs/{id}', function ($id) {
-    return view('job', ['job' => Job::find($id)]);
+    return view('jobs.show', ['job' => Job::find($id)]);
 });
 
 Route::get('/contact', function () {

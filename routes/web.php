@@ -28,6 +28,11 @@ Route::get('/contact', function () {
 });
 
 Route::post('/jobs', function() {
+    request()->validate([
+        'title' => ['required', 'min:3'],
+        'salary' => ['required']
+    ]);
+
     Job::create([
         'title' => request('title'),
         'salary' => request('salary'),

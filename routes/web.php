@@ -63,7 +63,7 @@ Route::patch('/jobs/{job}', function (Job $job) {
 });
 
 // Destroy
-Route::delete('/jobs/{$job}', function (Job $job) {
+Route::delete('/jobs/{job}', function (Job $job) {
     $job->delete();
 
     return redirect('/jobs');

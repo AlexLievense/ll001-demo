@@ -1,7 +1,7 @@
 <x-layout>
     <x-slot:heading>Register</x-slot:heading>
 
-    <form method="POST" action="/jobs">
+    <form method="POST" action="/register">
         @csrf
 
         <div class="space-y-12">

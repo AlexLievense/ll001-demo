@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Validation\Rules\Password;
+
 class RegisteredUserController extends Controller
 {
     public function create()
@@ -12,6 +14,13 @@ class RegisteredUserController extends Controller
     public function store()
     {
         // validate
+        request()->validate([
+            'first_name' => ['required'],
+            'last_name' => ['required'],
+            'email' => ['required', 'email'],
+            'password' => ['required', Password::min(6), 'confirmed'],
+        ]);
+
         // insert
         // redirect
     }

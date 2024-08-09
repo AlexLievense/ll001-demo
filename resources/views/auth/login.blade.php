@@ -10,6 +10,7 @@
                     <x-form-field>
                         <x-form-label for="email">Email</x-form-label>
                         <x-form-input type="email" name="email" id="email" placeholder="joedalton@example.com"
+                                      :value="old('email')"
                                       required/>
                         <div class="mt-2">
                             <x-form-error name="email"/>
@@ -18,7 +19,7 @@
 
                     <x-form-field>
                         <x-form-label for="password">Password</x-form-label>
-                        <x-form-input type="password" name="password" id="password" required/>
+                        <x-form-input type="password" name="password" id="password" :value="old('password')" required/>
                         <div class="mt-2">
                             <x-form-error name="password"/>
                         </div>

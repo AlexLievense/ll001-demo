@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
+
 class SessionController extends Controller
 {
     public function create()
@@ -14,5 +16,12 @@ class SessionController extends Controller
         // validate
         // insert
         // redirect
+    }
+
+    public function destroy()
+    {
+        Auth::logout();
+
+        return redirect('/');
     }
 }
